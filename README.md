@@ -18,12 +18,13 @@ The app contains a single endpoint that returns shipping rates for a given count
   bundle install
 
   rake db:create db:migrate
-
 ```
 
 ## Tests
 
+Run the tests using:
 ```
   rspec spec
-``` will run the tests.
+``` 
+
 
