@@ -13,7 +13,7 @@ The app contains a single endpoint that returns shipping rates for a given count
 ## Setup
 
 ```
-  git clone <insert repo here>
+  git clone git@github.com:tricycle/trike_trial.git
 
   bundle install
 
