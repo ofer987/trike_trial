@@ -1,7 +1,7 @@
 # Trike Trial Application
 
 ## About the app
-This app is designed for help us evaluate potential recruits.
+This app is designed to help us evaluate potential recruits.
 
 The app contains a single endpoint that returns shipping rates for a given country.
 
