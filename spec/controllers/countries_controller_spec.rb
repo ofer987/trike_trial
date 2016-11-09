@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CountriesController do
+RSpec.describe CountriesController do
   describe 'shipping_rates' do
     subject(:shipping_rates) { get :shipping_rates, country_code: code, format: :json }
 
