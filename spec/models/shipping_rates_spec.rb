@@ -2,11 +2,13 @@ require 'rails_helper'
 
 RSpec.describe ShippingRates do
   let(:country) { nil }
-  subject { described_class.new(country) }
+  subject { described_class.new(currency) }
 
   context 'for a given country' do
-    let(:country) do
-      FactoryGirl.create(:country,
+    let(:country) { FactoryGirl.create(:country) }
+    let(:currency) do
+      FactoryGirl.create(:currency,
+                         country: country,
                          regular_shipping_rate: '10.00',
                          express_shipping_rate: '20.00')
     end
@@ -17,8 +19,10 @@ RSpec.describe ShippingRates do
   end
 
   context 'for another country' do
-    let(:country) do
-      FactoryGirl.create(:country,
+    let(:country) { FactoryGirl.create(:country) }
+    let(:currency) do
+      FactoryGirl.create(:currency,
+                         country: country,
                          regular_shipping_rate: '5.00',
                          express_shipping_rate: '8.00')
     end

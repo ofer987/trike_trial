@@ -1,7 +1,11 @@
 class CountriesController < ApplicationController
   def shipping_rates
     @country = Country.find_by(code: shipping_rates_params[:country_code])
-    shipping_rates = ShippingRates.new(@country)
+    currency = @country
+      .currencies
+      .where(code: shipping_rates_params[:currency_code])
+      .first
+    shipping_rates = ShippingRates.new(currency)
 
     respond_to do |format|
       format.json do

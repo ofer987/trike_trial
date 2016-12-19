@@ -1,14 +1,14 @@
 class ShippingRates
-  def initialize(country)
-    @country = country
+  def initialize(currency)
+    @currency = currency
   end
 
   def regular
-    @country.regular_shipping_rate
+    @currency.regular_shipping_rate
   end
 
   def express
-    @country.express_shipping_rate
+    @currency.express_shipping_rate
   end
 
   def as_json(options = nil)

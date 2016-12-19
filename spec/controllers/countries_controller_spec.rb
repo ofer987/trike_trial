@@ -2,10 +2,17 @@ require 'rails_helper'
 
 RSpec.describe CountriesController do
   describe 'shipping_rates' do
-    subject(:shipping_rates) { get :shipping_rates, country_code: code, format: :json }
+    subject(:shipping_rates) do
+      get :shipping_rates, {
+        country_code: code,
+        currency_code: currency.code,
+        format: :json
+      }
+    end
 
     let(:code)     { 'AU' }
     let!(:country) { FactoryGirl.create :country, code: code }
+    let!(:currency) { FactoryGirl.create :currency, country: country }
 
     before { FactoryGirl.create :country, code: 'US' }
 
@@ -17,8 +24,8 @@ RSpec.describe CountriesController do
         JSON.parse(response.body)
       end
 
-      specify { expect(response_body['regular']).to eq country.regular_shipping_rate }
-      specify { expect(response_body['express']).to eq country.express_shipping_rate }
+      specify { expect(response_body['regular']).to eq currency.regular_shipping_rate }
+      specify { expect(response_body['express']).to eq currency.express_shipping_rate }
     end
   end
 end
