@@ -13,6 +13,8 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
 
+  gem 'awesome_print'
+
   gem 'guard-rails', require: false
   gem 'guard-rspec', require: false
 end
