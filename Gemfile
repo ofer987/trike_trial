@@ -7,10 +7,14 @@ gem 'spring', group: :development
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec-its'
   gem 'rspec-rails'
   gem 'reek'
   gem 'rubocop'
   gem 'rubocop-rspec'
+
+  gem 'guard-rails', require: false
+  gem 'guard-rspec', require: false
 end
 
 group :test do
