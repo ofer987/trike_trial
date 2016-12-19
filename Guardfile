@@ -35,5 +35,6 @@ guard :rspec, cmd: 'bundle exec rspec' do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 
+  watch(%r{^spec/(.+)\.rb$})
   watch(%r{^app/(.+)\.rb$}) { |m| "spec/#{m[1]}_spec.rb" }
 end
