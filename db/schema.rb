@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006031825) do
+ActiveRecord::Schema.define(version: 20161219225846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,22 @@ ActiveRecord::Schema.define(version: 20141006031825) do
   create_table "countries", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
-    t.string   "regular_shipping_rate"
-    t.string   "express_shipping_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "currencies", force: :cascade do |t|
+    t.integer  "country_id",            null: false
+    t.string   "name",                  null: false
+    t.string   "code",                  null: false
+    t.string   "regular_shipping_rate", null: false
+    t.string   "express_shipping_rate", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "currencies", ["country_id", "code"], name: "index_currencies_on_country_id_and_code", unique: true, using: :btree
+  add_index "currencies", ["country_id"], name: "index_currencies_on_country_id", using: :btree
+
+  add_foreign_key "currencies", "countries"
 end
