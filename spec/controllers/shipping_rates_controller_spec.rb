@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe CountriesController do
+RSpec.describe ShippingRatesController do
   describe 'shipping_rates' do
     subject(:shipping_rates) do
-      get :shipping_rates, {
+      get :index, {
         country_code: code,
         currency_code: currency.code,
         format: :json

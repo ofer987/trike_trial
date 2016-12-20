@@ -1,5 +1,5 @@
-class CountriesController < ApplicationController
-  def shipping_rates
+class ShippingRatesController < ApplicationController
+  def index
     @country = Country.find_by(code: shipping_rates_params[:country_code])
     currency = @country
       .currencies
